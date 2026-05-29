@@ -1,13 +1,14 @@
 import express from "express";
 import runGraph from "./services/ai/graph.ai.service.js";
 import cors from "cors";
+import config from "./config/config.js";
 
 const app = express();
 
 app.use(express.json());
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: config.CORS_ORIGIN,
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
     credentials: true,
   }),
